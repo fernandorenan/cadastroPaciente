@@ -1,0 +1,31 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  phone: MyString
+  email: MyString
+  birth: 2022-06-25
+  doc_cpf: MyString
+  doc_rg: MyString
+  goal: MyString
+  bio: MyText
+  found: MyString
+  start_date: 2022-06-25
+  end_date: 2022-06-25
+  status: false
+  created: 2022-06-25 12:33:15
+
+two:
+  name: MyString
+  phone: MyString
+  email: MyString
+  birth: 2022-06-25
+  doc_cpf: MyString
+  doc_rg: MyString
+  goal: MyString
+  bio: MyText
+  found: MyString
+  start_date: 2022-06-25
+  end_date: 2022-06-25
+  status: false
+  created: 2022-06-25 12:33:15

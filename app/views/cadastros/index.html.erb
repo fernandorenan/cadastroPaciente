@@ -1,0 +1,37 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Cadastros</h1>   
+
+<div>
+<h3>Hoje:</h3>
+
+</div>
+
+<div id="cadastros">
+  <table>
+    <thead>
+      <tr>
+      <th>Nome</th>
+      <th>Telefone</th>
+      <th>Email</th>
+      <th>Nascimento</th>
+      <th>Objetivo</th>
+      <th>Status</th>
+    </thead>
+    <tbody>
+      <% @cadastros.each do |cadastro| %>
+        <tr>
+          <td><%= cadastro.name %></td>
+          <td><%= cadastro.phone %></td>
+          <td><%= cadastro.email %></td>
+          <td><%= cadastro.birth.strftime("%d/%m/%Y") %></td>
+          <td><%= cadastro.goal %></td>
+          <td><%= cadastro.status %></td>
+          <td><%= link_to "Show this cadastro", cadastro %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<%= link_to "Novo cadastro", new_cadastro_path %>

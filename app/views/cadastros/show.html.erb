@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @cadastro %>
+
+<div>
+  <%= link_to "Edit this cadastro", edit_cadastro_path(@cadastro) %> |
+  <%= link_to "Back to cadastros", cadastros_path %>
+
+  <%= button_to "Destroy this cadastro", @cadastro, method: :delete %>
+</div>
