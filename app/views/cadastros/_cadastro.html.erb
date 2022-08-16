@@ -16,7 +16,7 @@
 
   <p>
     <strong>Birth:</strong>
-    <%= cadastro.birth %>
+    <%= cadastro.birth&.strftime("%d/%m/%Y") %>
   </p>
 
   <p>
@@ -46,12 +46,12 @@
 
   <p>
     <strong>Start date:</strong>
-    <%= cadastro.start_date %>
+    <%= cadastro.start_date&.strftime("%d/%m/%Y") %>
   </p>
 
   <p>
     <strong>End date:</strong>
-    <%= cadastro.end_date %>
+    <%= cadastro.end_date&.strftime("%d/%m/%Y") %>
   </p>
 
   <p>
@@ -61,7 +61,7 @@
 
   <p>
     <strong>Created:</strong>
-    <%= cadastro.created %>
+    <%= cadastro.created&.strftime("%d/%m/%Y") %>
   </p>
 
 </div>

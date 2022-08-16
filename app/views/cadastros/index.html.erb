@@ -1,10 +1,14 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Cadastros</h1>   
+<h1>Pacientes</h1>   
 
 <div>
-<h3>Hoje:</h3>
+  <h3>Notificações:
 
+  <% @cadastros.each do |cadastro| %>
+  <%= cadastro.birth == Date.today ? "Hoje é aniversário de #{cadastro.name}" : '' %>
+  <% end %>
+  </h3>
 </div>
 
 <div id="cadastros">
@@ -24,7 +28,7 @@
           <td><%= cadastro.name %></td>
           <td><%= cadastro.phone %></td>
           <td><%= cadastro.email %></td>
-          <td><%= cadastro.birth.strftime("%d/%m/%Y") %></td>
+          <td><%= cadastro.birth&.strftime("%d/%m/%Y") %></td>
           <td><%= cadastro.goal %></td>
           <td><%= cadastro.status %></td>
           <td><%= link_to "Show this cadastro", cadastro %></td>

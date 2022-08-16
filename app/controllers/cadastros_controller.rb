@@ -3,7 +3,7 @@ class CadastrosController < ApplicationController
 
   # GET /cadastros or /cadastros.json
   def index
-    @cadastros = Cadastro.All
+    @cadastros = Cadastro.all
   end
 
   # GET /cadastros/1 or /cadastros/1.json
