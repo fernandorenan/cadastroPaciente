@@ -3,14 +3,15 @@
 <h1>Pacientes</h1>   
 
 <div>
-  <h3>Notificações:
-
+  <h3>Notificações: </h3>
+  <h4><%="Estamos no mês #{Date.today.month}:" %></h4>
   <% @cadastros.each do |cadastro| %>
-  <%= cadastro.birth == Date.today ? "Hoje é aniversário de #{cadastro.name}" : '' %>
+    <%if cadastro.birth.month == Date.today.month%>
+      <h4><li><%= "Esse mês temos o aniversário de #{cadastro.name} dia #{cadastro.birth.day}." %></li></h4>
+    <% end %>
   <% end %>
-  </h3>
 </div>
-
+<hr>
 <div id="cadastros">
   <table>
     <thead>
