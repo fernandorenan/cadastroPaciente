@@ -64,6 +64,7 @@ group :development do
   # gem "spring"
 
   gem 'rspec-rails'
+  gem 'devise'
 end
 
 group :test do
