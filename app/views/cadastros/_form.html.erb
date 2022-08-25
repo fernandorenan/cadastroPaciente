@@ -1,7 +1,7 @@
 <%= form_with(model: cadastro) do |form| %>
   <% if cadastro.errors.any? %>
     <div style="color: red">
-      <h2><%= pluralize(cadastro.errors.count, "error") %> prohibited this cadastro from being saved:</h2>
+      <h3><%= pluralize(cadastro.errors.count, "erro") %> impedindo que você continue.</h3>
 
       <ul>
         <% cadastro.errors.each do |error| %>
