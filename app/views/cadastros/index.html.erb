@@ -1,13 +1,26 @@
 <h1>Pacientes</h1>   
-
 <div>
-  <h3>Notificações: </h3>
-  <h4><%="Estamos no mês #{Date.today.month}:" %></h4>
-  <% @cadastros.each do |cadastro| %>
-    <%if cadastro.birth.month == Date.today.month %>
-      <h4><li><%= "Esse mês temos o aniversário de #{cadastro.name} dia #{cadastro.birth.day}." %></li></h4>
-    <% end %>
-  <% end %>
+  <div class="accordion" id="birthNotif">
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingOne">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          Notificações:
+        </button>
+      </h2>
+      <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#birthNotif">
+        <div class="accordion-body">
+          <div>
+              <%="Estamos no mês #{Date.today.month}:" %></h4>
+              <% @cadastros.each do |cadastro| %>
+                <%if cadastro.birth.month == Date.today.month %>
+                  <li><%= "Esse mês temos o aniversário de #{cadastro.name} dia #{cadastro.birth.day}." %></li>
+                <% end %>
+              <% end %>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 <hr>
 <div id="cadastros">
