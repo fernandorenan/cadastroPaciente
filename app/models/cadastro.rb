@@ -28,5 +28,12 @@ class Cadastro < ApplicationRecord
       puts 'É hoje'
     end
   end
-
+  
+  def birthday_notice
+    @cadastros.each do |cadastro| 
+      if cadastro.birth.month == Date.today.month
+        render html: <li>"Esse mês temos o aniversário de #{cadastro.name} dia #{cadastro.birth.day}."</li>
+      end
+    end
+  end
 end

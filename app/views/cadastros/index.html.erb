@@ -10,13 +10,14 @@
       <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#birthNotif">
         <div class="accordion-body">
           <div>
-              <%="Estamos no mês #{Date.today.month}:" %></h4>
-              <% @cadastros.each do |cadastro| %>
-                <%if cadastro.birth.month == Date.today.month %>
-                  <li><%= "Esse mês temos o aniversário de #{cadastro.name} dia #{cadastro.birth.day}." %></li>
-                <% end %>
+            <%="Estamos no mês #{Date.today.month}:" %></h4>
+            <% @cadastros.each do |cadastro| %>
+              <%if cadastro.birth.month == Date.today.month %>
+                <li><%= "Esse mês temos o aniversário de #{cadastro.name} dia #{cadastro.birth.day}." %></li>
               <% end %>
-            </div>
+            <% end %>
+          </div>
+          <%=birthday_notice%>
         </div>
       </div>
     </div>
@@ -24,6 +25,7 @@
 </div>
 <hr>
 <div id="cadastros">
+<% if @cadastros.size > 0 %>
   <table>
     <thead>
       <tr>
@@ -48,6 +50,9 @@
       <% end %>
     </tbody>
   </table>
+  <% else %>
+    <h3>Você não possui usuários cadastrados. </h3>
+  <% end %>
 </div>
 
 <%= link_to "Novo cadastro", new_cadastro_path %>
