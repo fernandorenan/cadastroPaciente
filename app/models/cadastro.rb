@@ -21,11 +21,4 @@ class Cadastro < ApplicationRecord
   #attr_accessor :name
 
   validates :name, :start_date, presence: true
-
-  def birthday(day)
-    day 
-    if day == Date.today
-      puts 'É hoje'
-    end
-  end
 end
