@@ -16,6 +16,17 @@
   </div>
 </div>
 <hr>
+<div>
+<%= form_with url: cadastros_url, method: :get do |form| %>
+  <%= form.label :name, "Buscar por nome:" %>
+  <%= form.text_field :name, value: params[:name]%>
+     |
+   <%= form.label :status, "Buscar por status:" %>
+   <%= form.select :status, [" ", "Ativo", "Inativo"] %>
+  <%= form.submit%>
+<% end %>
+</div>
+<hr>
 <div id="cadastros">
 <% if @cadastros.size > 0 %>
   <table>

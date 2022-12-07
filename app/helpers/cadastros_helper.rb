@@ -8,7 +8,7 @@ module CadastrosHelper
               #{congrats(cadastro)}</li>"
           end
       end
-      if births
+      if births.present?
         %Q{Estamos no mês #{Date.today.month}: <ul>#{births}</ul></div>}.html_safe
       else
         %Q{Estamos no mês #{Date.today.month} e não há aniversariantes este mês.}.html_safe
