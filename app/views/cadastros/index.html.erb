@@ -19,11 +19,17 @@
 <div>
 <%= form_with url: cadastros_url, method: :get do |form| %>
   <%= form.label :name, "Buscar por nome:" %>
-  <%= form.text_field :name, value: params[:name]%>
+  <%= form.text_field :name, value: params[:name], onfocus: "this.value='';"%>
      |
    <%= form.label :status, "Buscar por status:" %>
-   <%= form.select :status, [" ", "Ativo", "Inativo"] %>
-  <%= form.submit%>
+   <%= form.select :status, [" ", "Ativo", "Inativo"], value: status%>
+   <%= form.select :status, [" ", "Ativo", "Inativo"], value: status%>
+   <%= f.select(:status, nil ,:prompt => "Status") do %>
+                <% [" ", "Ativo", "Inativo"].each do |status| %>
+                  <%= content_tag(:option, status , value: status) %>
+                <% end %>
+			<% end %>
+  <%= form.button%>
 <% end %>
 </div>
 <hr>

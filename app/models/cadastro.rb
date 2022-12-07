@@ -23,7 +23,7 @@ class Cadastro < ApplicationRecord
   validates :name, :start_date, presence: true
 
 
-  scope :search_by_status, -> (status) { where("status = ?", status) if @cadastros.present? }
-  scope :search_by_name, -> (name) { where("name LIKE ?", "%#{name}%") if @cadastros.present? }
+  scope :search_by_status, -> (status) { where("status = ?", status) if status.present? }
+  scope :search_by_name, -> (name) { where("name LIKE ?", "%#{name}%") if name.present? }
   #Cadastro.where("name LIKE ?", "%#{'Fernando'}%")
 end
