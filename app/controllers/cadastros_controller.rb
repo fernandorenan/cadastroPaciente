@@ -4,7 +4,8 @@ class CadastrosController < ApplicationController
   # GET /cadastros or /cadastros.json
   def index
     @cadastros = Cadastro.search_by_name(params[:name])
-                  .all
+                         .search_by_status(params[:status])
+                         .all
                   #binding.pry
     #redirect_to cadastros_path
   end

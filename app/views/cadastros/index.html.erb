@@ -21,14 +21,12 @@
   <%= form.label :name, "Buscar por nome:" %>
   <%= form.text_field :name, value: params[:name], onfocus: "this.value='';"%>
      |
-   <%= form.label :status, "Buscar por status:" %>
-   <%= form.select :status, [" ", "Ativo", "Inativo"], value: status%>
-   <%= form.select :status, [" ", "Ativo", "Inativo"], value: status%>
-   <%= f.select(:status, nil ,:prompt => "Status") do %>
-                <% [" ", "Ativo", "Inativo"].each do |status| %>
-                  <%= content_tag(:option, status , value: status) %>
-                <% end %>
-			<% end %>
+  <%= form.label :status, "Buscar por status:" %>
+  <%= form.select :status, nil ,:prompt => "Status" do %>
+    <% ["Inativo", "Ativo"].each_with_index do |value, index| %>
+      <%= content_tag(:option, value , value: index) %>
+    <% end %>
+	<% end %>
   <%= form.button%>
 <% end %>
 </div>
