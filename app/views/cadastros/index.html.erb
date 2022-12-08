@@ -1,4 +1,3 @@
-<h1>Pacientes</h1>   
 <div class="notif-container">
   <div class="accordion accordion-flush" id="birthNotif">
     <div class="accordion-item">
@@ -33,7 +32,7 @@
 <hr>
 <div id="cadastros">
 <% if @cadastros.size > 0 %>
-  <table>
+  <table class='table'>
     <thead>
       <tr>
       <th>Nome</th>
@@ -42,6 +41,7 @@
       <th>Nascimento</th>
       <th>Objetivo</th>
       <th>Status</th>
+      <th>&nbsp</th>
     </thead>
     <tbody>
       <% @cadastros.each do |cadastro| %>
@@ -51,7 +51,7 @@
           <td><%= cadastro.email %></td>
           <td><%= cadastro.birth&.strftime("%d/%m/%Y") %></td>
           <td><%= cadastro.goal %></td>
-          <td><%= cadastro.status %></td>
+          <td><%= cadastro.status? ? "Ativo" : "Inativo" %></td>
           <td><%= link_to "Visualizar", cadastro %></td>
         </tr>
       <% end %>
