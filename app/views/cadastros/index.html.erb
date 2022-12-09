@@ -15,19 +15,24 @@
   </div>
 </div>
 <hr>
-<div>
-<%= form_with url: cadastros_url, method: :get do |form| %>
-  <%= form.label :name, "Buscar por nome:" %>
-  <%= form.text_field :name, value: params[:name], onfocus: "this.value='';"%>
-     |
-  <%= form.label :status, "Buscar por status:" %>
-  <%= form.select :status, nil ,:prompt => "Status" do %>
-    <% ["Inativo", "Ativo"].each_with_index do |value, index| %>
-      <%= content_tag(:option, value , value: index) %>
+<div class="row align-items-start">
+  <div class='col-10'>
+  <%= form_with url: cadastros_url, method: :get do |form| %>
+    <%= form.label :name, "Buscar por nome:" %>
+    <%= form.text_field :name, value: params[:name], onfocus: "this.value='';"%>
+      |
+    <%= form.label :status, "Buscar por status:" %>
+    <%= form.select :status, nil ,:prompt => "Status" do %>
+      <% ["Inativo", "Ativo"].each_with_index do |value, index| %>
+        <%= content_tag(:option, value , value: index) %>
+      <% end %>
     <% end %>
-	<% end %>
-  <%= form.button%>
-<% end %>
+    <%= form.button%>
+  <% end %>
+  </div>
+  <div class='col-2'>
+   <%= link_to "Gerar Pdf", cadastros_path(format: :pdf), target: "_blank" %>
+  </div>
 </div>
 <hr>
 <div id="cadastros">

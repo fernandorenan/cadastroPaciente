@@ -6,8 +6,14 @@ class CadastrosController < ApplicationController
     @cadastros = Cadastro.search_by_name(params[:name])
                          .search_by_status(params[:status])
                          .all
-                  #binding.pry
-    #redirect_to cadastros_path
+
+    respond_to do |format|
+        format.html
+        format.pdf { render pdf: "cadastro-list-report",
+          header: {center: "Cadastro Pacientes"},
+          footer: {center: "[page] of [topage]"}
+        }
+    end
   end
 
   # GET /cadastros/1 or /cadastros/1.json

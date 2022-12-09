@@ -1,8 +1,12 @@
+<div class='container'>
 <h1>Bem vindo ao cadastro de Pacientes<h2>
 <h3>Esta vai ser uma pagina de Início<h4>
 
-   <% if !user_signed_in? %>
-   E se o usuário não estiver logado:
-    <%= link_to "Registrar-se", new_user_registration_path, :class => 'navbar-link'  %> 
-    <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
-   <%end%>
+<% if !user_signed_in? %>
+E se o usuário não estiver logado:
+   <%= link_to "Registrar-se", new_user_registration_path, :class => 'navbar-link'  %> 
+   <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
+<%end%>
+
+</div>
+ 

@@ -1,0 +1,29 @@
+<div id="cadastros">
+<% if @cadastros.size > 0 %>
+  <table class='table'>
+    <thead>
+      <tr>
+      <th>Nome</th>
+      <th>Telefone</th>
+      <th>Email</th>
+      <th>Nascimento</th>
+      <th>Objetivo</th>
+      <th>Status</th>
+    </thead>
+    <tbody>
+      <% @cadastros.each do |cadastro| %>
+        <tr>
+          <td><%= cadastro.name %></td>
+          <td><%= cadastro.phone %></td>
+          <td><%= cadastro.email %></td>
+          <td><%= cadastro.birth&.strftime("%d/%m/%Y") %></td>
+          <td><%= cadastro.goal %></td>
+          <td><%= cadastro.status? ? "Ativo" : "Inativo" %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <% else %>
+    <h3>Você não possui usuários cadastrados. </h3>
+  <% end %>
+</div>
