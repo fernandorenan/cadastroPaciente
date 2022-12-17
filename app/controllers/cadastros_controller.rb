@@ -1,4 +1,5 @@
 class CadastrosController < ApplicationController
+
   before_action :set_cadastro, only: %i[ show edit update destroy ]
 
   # GET /cadastros or /cadastros.json
@@ -65,6 +66,11 @@ class CadastrosController < ApplicationController
       format.html { redirect_to cadastros_url, notice: "Cadastro was successfully destroyed." }
       format.json { head :no_content }
     end
+  end
+
+
+  def search_cep(cep)
+    CepSearchService.call(cep)
   end
 
   private
