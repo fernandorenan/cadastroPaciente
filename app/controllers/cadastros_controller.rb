@@ -1,7 +1,6 @@
 class CadastrosController < ApplicationController
-
   before_action :set_cadastro, only: %i[ show edit update destroy ]
-
+  before_action :set_cep_search_service
   # GET /cadastros or /cadastros.json
   def index
     @cadastros = Cadastro.search_by_name(params[:name])
@@ -15,6 +14,9 @@ class CadastrosController < ApplicationController
           footer: {center: "[page] of [topage]"}
         }
     end
+
+    @cep = @cep_service&.call(params[:cep])
+    
   end
 
   # GET /cadastros/1 or /cadastros/1.json
@@ -69,10 +71,6 @@ class CadastrosController < ApplicationController
   end
 
 
-  def search_cep(cep)
-    CepSearchService.call(cep)
-  end
-
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_cadastro
@@ -83,4 +81,9 @@ class CadastrosController < ApplicationController
     def cadastro_params
       params.require(:cadastro).permit(:name, :phone, :email, :birth, :doc_cpf, :doc_rg, :goal, :bio, :found, :start_date, :end_date, :status, :created)
     end
+
+    def set_cep_search_service
+      @cep_service = CepSearchService.new
+    end
+
 end

@@ -36,7 +36,8 @@
 
   <div class='col-2'>
    <%= label_tag :cep, "Buscar por CEP:" %>
-   <%= text_field_tag( :cep, value: params[:cep])%>
+   <%= text_field_tag( :cep, params[:cep])%>
+   <%= text_field_tag( :cep, @cep['logradouro'])%>
    <%= button_tag%>
   </div>
 

@@ -4,6 +4,7 @@ class CepSearchService
   def call(cep)
     find_cep(cep)
   end
+  
 
 
   private
@@ -11,11 +12,15 @@ class CepSearchService
   def find_cep(cep)
     require 'rest-client'
     require 'json'
- 
-    url = "viacep.com.br/ws/#{cep}/json/"
+    
+    if cep.present?
+      url = "viacep.com.br/ws/#{cep}/json/"
+    else
+      url = "viacep.com.br/ws/07175140/json/"
+    end
 
     resp = RestClient.get "#{url}"
 
-    puts JSON.parse(resp.body)
+    JSON.parse(resp.body)
   end
 end
